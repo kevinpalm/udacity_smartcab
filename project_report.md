@@ -62,11 +62,24 @@ your basic implementation of Q-Learning. For which set of parameters
 does the agent perform best? How well does the final driving agent
 perform?
 
-I tried setting epsilon to a couple different values between 0.001 and
-0.1. 0.015 ended up working the best for optimizing my total
-destinations reached.
+**ANSWER 4**: I tried setting epsilon to a couple different values
+between 0.001 and 0.1. 0.015 ended up working the best for optimizing my
+total destinations reached.
 
+For my assumed Q estimation for unknown states, I tried -1, 0, 1, 5, and
+10. I definitely had the most success with 1 - some of the more extreme
+values had strange consequencies, like my smartcab not moving at all.
 
+For gamma, I actually found that setting it extremely low resulted in a
+better Average Destinations Reached value, but at the expense of Average
+Rewards per Turn. So while gamma=0.001 was great for getting the cab to
+the destination, I think the cab was driving terrible/inefficiently to
+get there. I ended up with a value of gamma=0.1 as a middle ground.
+
+For alpha, I tried a pretty wide range of values again, from 0.0001 to
+0.9999. I ended up going for 0.28, for the reason that somewhere between
+0.25 and 0.3 I tended to get perfect destination totals for the second
+half of each experiment.
 
 **QUESTION 5**: Does your agent get close to finding an optimal policy,
 i.e. reach the destination in the minimum possible time, and not incur

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f83b8eb4-0b2e-49b1-85ff-9081d9ed1311" name="Default" comment="Added a loop function over top, so that the expiriment can be run multiple times in succession and summarized">
+    <list default="true" id="f83b8eb4-0b2e-49b1-85ff-9081d9ed1311" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_report.md" afterPath="$PROJECT_DIR$/project_report.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/smartcab/agent.py" afterPath="$PROJECT_DIR$/smartcab/agent.py" />
@@ -29,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/smartcab/agent.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
+              <caret line="82" column="54" selection-start-line="82" selection-start-column="54" selection-end-line="82" selection-end-column="54" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -41,8 +41,8 @@
         <entry file="file://$PROJECT_DIR$/project_report.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.65891474">
-                <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+              <first_editor vertical-scroll-proportion="0.53100777">
+                <caret line="81" column="24" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -377,7 +377,13 @@
       <option name="project" value="LOCAL" />
       <updated>1470605088005</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added a loop over the whole program, so that the experiment can be run multiple times in succession and summarized">
+      <created>1470612857875</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1470612857875</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -427,7 +433,8 @@
     <MESSAGE value="added an epsilon agruement to choose_action()" />
     <MESSAGE value="corrected choose_action to work for both forecasting and choosing the immediate action" />
     <MESSAGE value="Added a summary and simple plot at the end of the experiment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a summary and simple plot at the end of the experiment" />
+    <MESSAGE value="added a loop over the whole program, so that the experiment can be run multiple times in succession and summarized" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a loop over the whole program, so that the experiment can be run multiple times in succession and summarized" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -497,7 +504,7 @@
     <entry file="file://$PROJECT_DIR$/smartcab/agent.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
+          <caret line="82" column="54" selection-start-line="82" selection-start-column="54" selection-end-line="82" selection-end-column="54" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -507,8 +514,8 @@
     <entry file="file://$PROJECT_DIR$/project_report.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.65891474">
-            <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <first_editor vertical-scroll-proportion="0.53100777">
+            <caret line="81" column="24" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
             <folding />
           </first_editor>
           <second_editor />

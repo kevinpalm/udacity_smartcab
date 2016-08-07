@@ -80,7 +80,7 @@ class LearningAgent(Agent):
         return action, expected
 
 
-    def update_policy(self, action, reward, alpha=0.25, initq=1.0, gamma = 0.75):
+    def update_policy(self, action, reward, alpha=0.28, initq=1.0, gamma = 0.1):
 
         # Get the new state for estimating Q
         newtokey = self.env.sense(self).values()
