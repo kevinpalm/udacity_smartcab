@@ -4,6 +4,8 @@ from planner import RoutePlanner
 from simulator import Simulator
 import math
 import operator
+import pandas as pd
+import matplotlib.pyplot as plt
 
 class LearningAgent(Agent):
     """An agent that learns to drive in the smartcab world."""
@@ -16,9 +18,27 @@ class LearningAgent(Agent):
         # Create an empty dictionary for storing policies
         self.policy = {}
 
+        # Create some lists for summary statistics at the end
+        self.turncountlist = []
+        self.rewardsumlist = []
+        self.reachdestlist = []
+
+
     def reset(self, destination=None):
         self.planner.route_to(destination)
-        # TODO: Prepare for a new trip; reset any variables here, if required
+
+        # Log the last round's stats
+        try:
+            self.turncountlist.append(self.turncount)
+            self.rewardsumlist.append(self.rewardsum)
+            self.reachdestlist.append(self.destbool)
+        except:
+            pass
+
+        # Start a fresh counter for turn count and reward sum
+        self.turncount = 0
+        self.rewardsum = 0
+        self.destbool = False
 
     def choose_action(self, state, epsilon=0.01):
 
@@ -61,6 +81,7 @@ class LearningAgent(Agent):
 
 
     def update_policy(self, action, reward, alpha=0.1, initq=1.0, gamma = 0.5):
+
         # Get the new state for estimating Q
         newtokey = self.env.sense(self).values()
         newtokey.extend([self.planner.next_waypoint(), max(min(int(math.sqrt(self.env.get_deadline(self))), 4), 1)])
@@ -99,14 +120,24 @@ class LearningAgent(Agent):
         self.state = tuple(tokey)
 
         
-        # TODO: Select action according to your policy
+        # Select action according to your policy
         action, expected = self.choose_action(self.state)
 
         # Execute action and get reward
         reward = self.env.act(self, action)
 
-        # TODO: Learn policy based on state, action, reward
+        # Learn policy based on state, action, reward
         self.update_policy(action, reward)
+
+        # Check if the destination was reached
+        if reward == 12.0:
+            self.destbool = True
+
+        # Add to turn count
+        self.turncount += 1
+
+        # Add to reward sum
+        self.rewardsum += reward
 
         print "LearningAgent.update(): deadline = {}, inputs = {}, action = {}, reward = {}".format(deadline, inputs, action, reward)  # [debug]
 
@@ -121,11 +152,27 @@ def run():
     # NOTE: You can set enforce_deadline=False while debugging to allow longer trials
 
     # Now simulate it
-    sim = Simulator(e, update_delay=0.5, display=True)  # create simulator (uses pygame when display=True, if available)
+    sim = Simulator(e, update_delay=0.001, display=False)  # create simulator (uses pygame when display=True, if available)
     # NOTE: To speed up simulation, reduce update_delay and/or set display=False
 
     sim.run(n_trials=100)  # run for a specified number of trials
     # NOTE: To quit midway, press Esc or close pygame window, or hit Ctrl+C on the command-line
+
+    # Visualize and summarize the experiment
+    showsummary = True
+    if showsummary:
+        df = pd.DataFrame()
+        df["Turns"] = a.turncountlist
+        df["Rewards"] = a.rewardsumlist
+        df["Destination"] = a.destbool
+
+        print("Average Turns: {0}\nAverage Rewards: {1}\nAverage Destinations: {2}".format(df["Turns"].mean(),
+                                                                                          df["Rewards"].mean(),
+                                                                                          df["Destination"].mean()))
+        df.plot()
+        plt.show()
+
+
 
 
 if __name__ == '__main__':
