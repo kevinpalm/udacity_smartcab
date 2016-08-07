@@ -37,8 +37,22 @@ Q-Learning is to learn and make informed decisions about each state? Why
 or why not?
 
 **OPTIONAL ANSWER**: There are 192 unique states possible given my
-definition of state. I feel like this is definitely on the high end of
+definition of state. I feel like this is probably on the high end of
 what's a reasonable number of possible states for this relatively simple
 simulation, but I'm going to go for it and see how it goes. My hope is
 that the more complex representation of the world will pay off in the
-end, despite no doubt taking a longer time for the agent to learn.
+end, despite probably taking a longer time for the agent to learn.
+
+**QUESTION 3**: What changes do you notice in the agent's behavior when
+compared to the basic driving agent when random actions were always
+taken? Why is this behavior occurring?
+
+**ANSWER 3**: The agent does start to seek out the target destinations.
+It also stops running red lights, and cutting off other drivers. This is
+occurring because that each action and reward are now being used to
+update the agent's policy concerning that state, so when the agent finds
+itself in the same or similar state again it can use the updated
+policies to pick the next action, rather than a random choice. The
+overall effect is that there's a lot less negative rewards getting
+incurred constantly, and the smartcab does start seeking out the
+destination.

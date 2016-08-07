@@ -97,10 +97,6 @@ class LearningAgent(Agent):
         # TODO: Learn policy based on state, action, reward
         self.update_policy(action, reward)
 
-
-
-
-
         print "LearningAgent.update(): deadline = {}, inputs = {}, action = {}, reward = {}".format(deadline, inputs, action, reward)  # [debug]
 
 
