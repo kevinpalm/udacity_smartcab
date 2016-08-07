@@ -23,8 +23,8 @@ class LearningAgent(Agent):
         inputs = self.env.sense(self)
         deadline = self.env.get_deadline(self)
 
-        # Bin up the deadlines using square root, to a maximum of 3 and a minimum of 1
-        bindeadline = max(min(int(math.sqrt(deadline)), 3), 1)
+        # Bin up the deadlines using square root, to a maximum of 4 and a minimum of 1
+        bindeadline = max(min(int(math.sqrt(deadline)), 4), 1)
 
         # Concatonate the separate inputs as the state
         self.state = inputs.values()
