@@ -27,8 +27,8 @@
       <file leaf-file-name="agent.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/smartcab/agent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6890034">
-              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.46907216">
+              <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -358,7 +358,13 @@
       <option name="project" value="LOCAL" />
       <updated>1470602007241</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added an epsilon agruement to choose_action()">
+      <created>1470602442916</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1470602442916</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -405,7 +411,8 @@
     <MESSAGE value="Answered question 2 and the optional" />
     <MESSAGE value="Created two new functions, choose_action and update_policy, which includes my first attempt at Q estimations" />
     <MESSAGE value="answered question 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="answered question 3" />
+    <MESSAGE value="added an epsilon agruement to choose_action()" />
+    <option name="LAST_COMMIT_MESSAGE" value="added an epsilon agruement to choose_action()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -494,8 +501,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/smartcab/agent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6890034">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.46907216">
+          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>

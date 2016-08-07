@@ -23,11 +23,11 @@ class LearningAgent(Agent):
     def choose_action(self, state, epsilon=0.01):
 
         # Check if a policy exists
-        if self.state in self.policy.keys():
+        if state in self.policy.keys():
 
             # If so, pick the action
-            action = max(self.policy[self.state].iteritems(), key=operator.itemgetter(1))[0]
-            expected = self.policy[self.state][action]
+            action = max(self.policy[state].iteritems(), key=operator.itemgetter(1))[0]
+            expected = self.policy[state][action]
 
 
         else:
@@ -36,7 +36,7 @@ class LearningAgent(Agent):
             try:
                 comparisons = {}
                 for policy in self.policy.keys():
-                    comparisons[policy] = len([i for i in range(len(policy)) if policy[i]==self.state[i]])
+                    comparisons[policy] = len([i for i in range(len(policy)) if policy[i] == state[i]])
                 nearpolicy = max(comparisons.iteritems(), key=operator.itemgetter(1))[0]
                 action = max(self.policy[nearpolicy].iteritems(), key=operator.itemgetter(1))[0]
                 expected = self.policy[nearpolicy][action]
@@ -50,7 +50,7 @@ class LearningAgent(Agent):
         if random.random() <= epsilon:
             action = random.choice([None, "left", "right", "forward"])
             try:
-                expected = self.policy[self.state][action]
+                expected = self.policy[state][action]
             except:
                 try:
                     expected = self.policy[nearpolicy][action]
