@@ -20,7 +20,7 @@ class LearningAgent(Agent):
         self.planner.route_to(destination)
         # TODO: Prepare for a new trip; reset any variables here, if required
 
-    def choose_action(self, state):
+    def choose_action(self, state, epsilon=0.01):
 
         # Check if a policy exists
         if self.state in self.policy.keys():
@@ -45,6 +45,17 @@ class LearningAgent(Agent):
             except:
                 action = random.choice([None, "left", "right", "forward"])
                 expected = 1.0
+
+        # Pick a random action with epsilon likelihood every now and then
+        if random.random() <= epsilon:
+            action = random.choice([None, "left", "right", "forward"])
+            try:
+                expected = self.policy[self.state][action]
+            except:
+                try:
+                    expected = self.policy[nearpolicy][action]
+                except:
+                    expected = 1.0
 
         return action, expected
 
