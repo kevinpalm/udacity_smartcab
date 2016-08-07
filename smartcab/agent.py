@@ -2,6 +2,7 @@ import random
 from environment import Agent, Environment
 from planner import RoutePlanner
 from simulator import Simulator
+import math
 
 class LearningAgent(Agent):
     """An agent that learns to drive in the smartcab world."""
@@ -22,7 +23,12 @@ class LearningAgent(Agent):
         inputs = self.env.sense(self)
         deadline = self.env.get_deadline(self)
 
-        # TODO: Update state
+        # Bin up the deadlines using square root, to a maximum of 3 and a minimum of 1
+        bindeadline = max(min(int(math.sqrt(deadline)), 3), 1)
+
+        # Concatonate the separate inputs as the state
+        self.state = inputs.values()
+        self.state.extend([self.next_waypoint, bindeadline])
         
         # TODO: Select action according to your policy
         action = random.choice([None, "left", "right", "forward"])
