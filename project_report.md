@@ -56,3 +56,19 @@ policies to pick the next action, rather than a random choice. The
 overall effect is that there's a lot less negative rewards getting
 incurred constantly, and the smartcab does start seeking out the
 destination.
+
+**QUESTION 4**: Report the different values for the parameters tuned in
+your basic implementation of Q-Learning. For which set of parameters
+does the agent perform best? How well does the final driving agent
+perform?
+
+I tried setting epsilon to a couple different values between 0.001 and
+0.1. 0.015 ended up working the best for optimizing my total
+destinations reached.
+
+
+
+**QUESTION 5**: Does your agent get close to finding an optimal policy,
+i.e. reach the destination in the minimum possible time, and not incur
+any penalties? How would you describe an optimal policy for this
+problem?

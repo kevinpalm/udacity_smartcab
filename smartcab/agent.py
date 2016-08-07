@@ -36,11 +36,11 @@ class LearningAgent(Agent):
             pass
 
         # Start a fresh counter for turn count and reward sum
-        self.turncount = 0
-        self.rewardsum = 0
-        self.destbool = False
+        self.turncount = 0.0
+        self.rewardsum = 0.0
+        self.destbool = 0.0
 
-    def choose_action(self, state, epsilon=0.01):
+    def choose_action(self, state, epsilon=0.015):
 
         # Check if a policy exists
         if state in self.policy.keys():
@@ -80,7 +80,7 @@ class LearningAgent(Agent):
         return action, expected
 
 
-    def update_policy(self, action, reward, alpha=0.1, initq=1.0, gamma = 0.5):
+    def update_policy(self, action, reward, alpha=0.25, initq=1.0, gamma = 0.75):
 
         # Get the new state for estimating Q
         newtokey = self.env.sense(self).values()
@@ -130,11 +130,11 @@ class LearningAgent(Agent):
         self.update_policy(action, reward)
 
         # Check if the destination was reached
-        if reward == 12.0:
-            self.destbool = True
+        if self.env.done == True:
+            self.destbool = 1.0
 
         # Add to turn count
-        self.turncount += 1
+        self.turncount += 1.0
 
         # Add to reward sum
         self.rewardsum += reward
@@ -158,22 +158,29 @@ def run():
     sim.run(n_trials=100)  # run for a specified number of trials
     # NOTE: To quit midway, press Esc or close pygame window, or hit Ctrl+C on the command-line
 
-    # Visualize and summarize the experiment
-    showsummary = True
-    if showsummary:
-        df = pd.DataFrame()
-        df["Turns"] = a.turncountlist
-        df["Rewards"] = a.rewardsumlist
-        df["Destination"] = a.destbool
+    # Output a dataframe for visualizing and summarizing the experiment
+    df = pd.DataFrame()
+    df["Turns"] = a.turncountlist
+    df["Rewards"] = a.rewardsumlist
+    df["Destination"] = a.reachdestlist
+    df["Rewards per Turn"] = df["Rewards"] / df["Turns"]
+    df["Trial"] = df.index
 
-        print("Average Turns: {0}\nAverage Rewards: {1}\nAverage Destinations: {2}".format(df["Turns"].mean(),
-                                                                                          df["Rewards"].mean(),
-                                                                                          df["Destination"].mean()))
-        df.plot()
-        plt.show()
-
-
+    return df
 
 
 if __name__ == '__main__':
-    run()
+    # Run multiple trials for a nice smooth graphic
+    for i in range(3):
+        outdf = run()
+        try:
+            sumdf = sumdf.append(outdf, ignore_index=True)
+        except:
+            sumdf = outdf
+    df = sumdf.groupby("Trial")[["Rewards per Turn", "Destination"]].mean()
+    print "Average Rewards per Turn: {0}\nAverage Destinations Reached: {1}".format(df["Rewards per Turn"].mean(),
+                                                                                    df["Destination"].mean())
+
+    df.plot()
+    plt.savefig("../images/summary_plot.png")
+
