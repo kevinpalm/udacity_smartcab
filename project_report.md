@@ -85,3 +85,35 @@ half of each experiment.
 i.e. reach the destination in the minimum possible time, and not incur
 any penalties? How would you describe an optimal policy for this
 problem?
+
+**ANSWER 5**: Running the experiment 100 consecutive times and averaging
+together the trials yields the following graph.
+
+![Summary Plot](images/summary_plot.png)
+
+My agent is approaching 1.0 for its average destinations reached, but it
+doesn't seem to improve much on average rewards per turn after about 20
+trials. So I think I've currently got a reasonably dependable agent but
+which isn't driving safe or efficient... big problems once outside of a
+simulation.
+
+An optimal policy for this problem would have a perfect destination
+count of 1 at the end of the trials, and it would never incur any
+negative rewards. My learner most certainly isn't there yet. I think
+having epsilon and the learning rate scale down as the trials progress,
+as mentioned in the lectures, would be a big step in the right
+direction. I'm also wondering if there's some way to forecast further
+than one expected state ahead, and if that could improve the learner in
+this exercise.
+
+I also may need to remove any awareness of deadlines from my
+agent's state - 192 different states is probably too many for such a
+small number of trials. I currently have my choose_actions function set
+up with a crude way of picking a similar stage to use as a basis for
+newly encountered stages, but I probably need to evaulate whether
+setting that up was a good move.
+
+All in all, though, this project was really rewarding! This is the first
+time I've coded any sort of AI, and I was really thrilled about how this
+first attempt went and seeing my agent moving around figuring things
+out!

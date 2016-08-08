@@ -171,7 +171,7 @@ def run():
 
 if __name__ == '__main__':
     # Run multiple trials for a nice smooth graphic
-    for i in range(3):
+    for i in range(100):
         outdf = run()
         try:
             sumdf = sumdf.append(outdf, ignore_index=True)
