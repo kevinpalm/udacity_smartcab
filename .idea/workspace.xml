@@ -43,8 +43,8 @@
           </provider>
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.5536232">
-                <caret line="127" column="68" selection-start-line="127" selection-start-column="68" selection-end-line="127" selection-end-column="68" />
+              <first_editor vertical-scroll-proportion="0.03188406">
+                <caret line="1" column="47" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -445,7 +445,13 @@
       <option name="project" value="LOCAL" />
       <updated>1470782840574</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="fixed spacing on the markdown document">
+      <created>1470782944081</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1470782944081</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -503,7 +509,8 @@
     <MESSAGE value="changed epsilon to decay over turns" />
     <MESSAGE value="Added a print line to report stats for the last 10 trials" />
     <MESSAGE value="Revised questions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Revised questions" />
+    <MESSAGE value="fixed spacing on the markdown document" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed spacing on the markdown document" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -716,8 +723,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.5536232">
-            <caret line="127" column="68" selection-start-line="127" selection-start-column="68" selection-end-line="127" selection-end-column="68" />
+          <first_editor vertical-scroll-proportion="0.03188406">
+            <caret line="1" column="47" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
             <folding />
           </first_editor>
           <second_editor />
