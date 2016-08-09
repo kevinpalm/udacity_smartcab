@@ -84,7 +84,7 @@ class LearningAgent(Agent):
 
         # Get the new state for estimating Q
         newtokey = self.env.sense(self).values()
-        newtokey.extend([self.planner.next_waypoint(), max(min(int(math.sqrt(self.env.get_deadline(self))), 4), 1)])
+        newtokey.append(self.planner.next_waypoint())
         newstate = tuple(newtokey)
 
         # Check if the previous state was already in the policies, otherwise initialize it
@@ -111,12 +111,9 @@ class LearningAgent(Agent):
         inputs = self.env.sense(self)
         deadline = self.env.get_deadline(self)
 
-        # Bin up the deadlines using square root, to a maximum of 4 and a minimum of 1
-        bindeadline = max(min(int(math.sqrt(deadline)), 4), 1)
-
         # Concatenate the separate inputs as the state
         tokey = inputs.values()
-        tokey.extend([self.next_waypoint, bindeadline])
+        tokey.append(self.next_waypoint)
         self.state = tuple(tokey)
 
         
@@ -152,7 +149,7 @@ def run():
     # NOTE: You can set enforce_deadline=False while debugging to allow longer trials
 
     # Now simulate it
-    sim = Simulator(e, update_delay=0.001, display=False)  # create simulator (uses pygame when display=True, if available)
+    sim = Simulator(e, update_delay=0.0001, display=False)  # create simulator (uses pygame when display=True, if available)
     # NOTE: To speed up simulation, reduce update_delay and/or set display=False
 
     sim.run(n_trials=100)  # run for a specified number of trials
@@ -171,7 +168,7 @@ def run():
 
 if __name__ == '__main__':
     # Run multiple trials for a nice smooth graphic
-    for i in range(100):
+    for i in range(3):
         outdf = run()
         try:
             sumdf = sumdf.append(outdf, ignore_index=True)
