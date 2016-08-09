@@ -1,6 +1,4 @@
-Kevin Palm
-Udacity Machine Learning Nanodegree - Project 4
-8/2016
+Kevin Palm, Udacity Machine Learning Nanodegree - Project 4, 8/2016
 
 **QUESTION 1**: Observe what you see with the agent's behavior as it
 takes random actions. Does the smartcab eventually make it to the
