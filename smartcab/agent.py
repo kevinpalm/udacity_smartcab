@@ -43,7 +43,7 @@ class LearningAgent(Agent):
         self.rewardsum = 0.0
         self.destbool = 0.0
 
-    def choose_action(self, state, epsilon=1.0):
+    def choose_action(self, state, epsilon=0.2):
 
         # Check if a policy exists
         if state in self.policy.keys():
@@ -83,7 +83,7 @@ class LearningAgent(Agent):
         return action, expected
 
 
-    def update_policy(self, action, reward, alpha=0.28, initq=1.0, gamma = 0.1):
+    def update_policy(self, action, reward, alpha=0.2, initq=1.0, gamma = 0.2):
 
         # Get the new state for estimating Q
         newtokey = self.env.sense(self).values()
@@ -171,7 +171,7 @@ def run():
 
 if __name__ == '__main__':
     # Run multiple trials for a nice smooth graphic
-    for i in range(10):
+    for i in range(100):
         outdf = run()
         try:
             sumdf = sumdf.append(outdf, ignore_index=True)
@@ -185,6 +185,7 @@ if __name__ == '__main__':
           "\nAverage Destinations Reached for the last 10 trials: {1}".format(
         ltdf[ltdf["Trial"] >= 90]["Rewards per Turn"].mean(),
         ltdf[ltdf["Trial"] >= 90]["Destination"].mean())
+
 
     df.plot()
     plt.savefig("../images/summary_plot.png")
