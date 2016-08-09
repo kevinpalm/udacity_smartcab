@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f83b8eb4-0b2e-49b1-85ff-9081d9ed1311" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/summary_plot.png" afterPath="$PROJECT_DIR$/images/summary_plot.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_report.md" afterPath="$PROJECT_DIR$/project_report.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/smartcab/agent.py" afterPath="$PROJECT_DIR$/smartcab/agent.py" />
     </list>
     <ignored path="smartcab.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,10 +24,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="agent.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="agent.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/smartcab/agent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.2883599">
+            <state vertical-scroll-proportion="0.0">
               <caret line="85" column="77" selection-start-line="85" selection-start-column="77" selection-end-line="85" selection-end-column="77" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -38,15 +36,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="project_report.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="project_report.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project_report.md">
-          <provider selected="true" editor-type-id="MarkdownFxPreviewEditor">
+          <provider editor-type-id="MarkdownFxPreviewEditor">
             <state />
           </provider>
-          <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.71304345">
-                <caret line="127" column="65" selection-start-line="127" selection-start-column="65" selection-end-line="127" selection-end-column="65" />
+              <first_editor vertical-scroll-proportion="0.5536232">
+                <caret line="127" column="68" selection-start-line="127" selection-start-column="68" selection-end-line="127" selection-end-column="68" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -441,7 +439,13 @@
       <option name="project" value="LOCAL" />
       <updated>1470774026842</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Revised questions">
+      <created>1470782840574</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1470782840574</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -498,7 +502,8 @@
     <MESSAGE value="removed the deadline binning from the state" />
     <MESSAGE value="changed epsilon to decay over turns" />
     <MESSAGE value="Added a print line to report stats for the last 10 trials" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a print line to report stats for the last 10 trials" />
+    <MESSAGE value="Revised questions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revised questions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -695,14 +700,24 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/smartcab/agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="85" column="77" selection-start-line="85" selection-start-column="77" selection-end-line="85" selection-end-column="77" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project_report.md">
-      <provider selected="true" editor-type-id="MarkdownFxPreviewEditor">
+      <provider editor-type-id="MarkdownFxPreviewEditor">
         <state />
       </provider>
-      <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.71304345">
-            <caret line="127" column="65" selection-start-line="127" selection-start-column="65" selection-end-line="127" selection-end-column="65" />
+          <first_editor vertical-scroll-proportion="0.5536232">
+            <caret line="127" column="68" selection-start-line="127" selection-start-column="68" selection-end-line="127" selection-end-column="68" />
             <folding />
           </first_editor>
           <second_editor />
@@ -712,16 +727,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smartcab/agent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2883599">
-          <caret line="85" column="77" selection-start-line="85" selection-start-column="77" selection-end-line="85" selection-end-column="77" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

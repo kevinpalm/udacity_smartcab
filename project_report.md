@@ -117,6 +117,7 @@ occasionally take illegal actions in its final 10 trials. From my most
 recent run there were two moves that incurred negative rewards:
 
 Trial 91, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': 'forward'}, action = forward, reward = -1.0
+
 Trial 96, inputs = {'light': 'green', 'oncoming': None, 'right': 'forward', 'left': None}, action = forward, reward = -0.5
 
 My thinking is that these states are either encountered too rarely (but
