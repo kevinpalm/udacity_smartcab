@@ -43,7 +43,7 @@ class LearningAgent(Agent):
         self.rewardsum = 0.0
         self.destbool = 0.0
 
-    def choose_action(self, state, epsilon=0.5):
+    def choose_action(self, state, epsilon=1.0):
 
         # Check if a policy exists
         if state in self.policy.keys():
@@ -69,7 +69,7 @@ class LearningAgent(Agent):
                 action = random.choice([None, "left", "right", "forward"])
                 expected = 1.0
 
-        # Pick a random action with epsilon likelihood every now and then
+        # Pick a random action with (decayed) epsilon likelihood every now and then
         if random.random() <= epsilon/math.sqrt(self.totalturns):
             action = random.choice([None, "left", "right", "forward"])
             try:
@@ -171,7 +171,7 @@ def run():
 
 if __name__ == '__main__':
     # Run multiple trials for a nice smooth graphic
-    for i in range(100):
+    for i in range(10):
         outdf = run()
         try:
             sumdf = sumdf.append(outdf, ignore_index=True)
@@ -180,6 +180,11 @@ if __name__ == '__main__':
     df = sumdf.groupby("Trial")[["Rewards per Turn", "Destination"]].mean()
     print "Average Rewards per Turn: {0}\nAverage Destinations Reached: {1}".format(df["Rewards per Turn"].mean(),
                                                                                     df["Destination"].mean())
+    ltdf = df.reset_index()
+    print "Average Rewards per Turn for the last 10 trials: {0}" \
+          "\nAverage Destinations Reached for the last 10 trials: {1}".format(
+        ltdf[ltdf["Trial"] >= 90]["Rewards per Turn"].mean(),
+        ltdf[ltdf["Trial"] >= 90]["Destination"].mean())
 
     df.plot()
     plt.savefig("../images/summary_plot.png")
