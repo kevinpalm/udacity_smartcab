@@ -23,6 +23,9 @@ class LearningAgent(Agent):
         self.rewardsumlist = []
         self.reachdestlist = []
 
+        # Set the total turns count to 1.0
+        self.totalturns = 1.0
+
 
     def reset(self, destination=None):
         self.planner.route_to(destination)
@@ -40,7 +43,7 @@ class LearningAgent(Agent):
         self.rewardsum = 0.0
         self.destbool = 0.0
 
-    def choose_action(self, state, epsilon=0.015):
+    def choose_action(self, state, epsilon=0.5):
 
         # Check if a policy exists
         if state in self.policy.keys():
@@ -67,7 +70,7 @@ class LearningAgent(Agent):
                 expected = 1.0
 
         # Pick a random action with epsilon likelihood every now and then
-        if random.random() <= epsilon:
+        if random.random() <= epsilon/math.sqrt(self.totalturns):
             action = random.choice([None, "left", "right", "forward"])
             try:
                 expected = self.policy[state][action]
@@ -116,7 +119,6 @@ class LearningAgent(Agent):
         tokey.append(self.next_waypoint)
         self.state = tuple(tokey)
 
-        
         # Select action according to your policy
         action, expected = self.choose_action(self.state)
 
@@ -132,6 +134,7 @@ class LearningAgent(Agent):
 
         # Add to turn count
         self.turncount += 1.0
+        self.totalturns += 1.0
 
         # Add to reward sum
         self.rewardsum += reward
@@ -168,7 +171,7 @@ def run():
 
 if __name__ == '__main__':
     # Run multiple trials for a nice smooth graphic
-    for i in range(3):
+    for i in range(100):
         outdf = run()
         try:
             sumdf = sumdf.append(outdf, ignore_index=True)
